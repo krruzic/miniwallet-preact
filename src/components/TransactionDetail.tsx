@@ -51,16 +51,20 @@ export function TransactionDetail(props: { tx: Transaction }): h.JSX.Element {
             <td style={{ textAlign: "right" }}
               className="tx-fee">{prettyPrintAmount(props.tx.fee)}</td>
           </tr>
-          <tr>
-            <td>Unlock Time</td>
-            <td
-              style={{ textAlign: "right" }}>{props.tx.unlockTime}</td>
-          </tr>
-          <tr>
-            <td>Payment ID</td>
-            <td
-              style={{ textAlign: "right" }}>{props.tx.paymentID}</td>
-          </tr>
+          {props.tx.unlockTime !== 0 && (
+            <tr>
+              <td>Unlock Time</td>
+              <td
+                style={{ textAlign: "right" }}>{props.tx.unlockTime}</td>
+            </tr>
+          )}
+          {props.tx.paymentID !== "" && (
+            <tr>
+              <td>Payment ID</td>
+              <td
+                style={{ textAlign: "right" }}>{props.tx.paymentID}</td>
+            </tr>
+          )}
         </tbody>
       }
     </table>
